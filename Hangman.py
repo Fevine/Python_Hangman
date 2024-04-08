@@ -7,6 +7,9 @@ Animals = [
     'Whale', 'snake', 'panda', 'koala'
 ]
 
+
+# Functions
+
 def update (a):
     global Target, Hidden, Result
     a = a.lower()
@@ -16,15 +19,22 @@ def update (a):
         Result = ''.join(Hidden)
     return Result
 
-print('Find the hidden animal')
+
+
 
 Target = choice(Animals)
 Hidden = list(len(Target)*'_')
 Result = ''.join(Hidden)
-Chances = 6
+
+# Variables
+
+Life = 6
+
+print('Find the hidden animal')
+
 Try = input('Try to find: ')
 
-while Chances > 0 and Result != Target:
+while Life > 0 and Result != Target:
     if Try != Target:
         if Try in Target:
             print('You found a letter')
@@ -35,9 +45,9 @@ while Chances > 0 and Result != Target:
         else:
             print(f'{Try} is not in the word\n')
             print(Result,'\n')
-            Chances -=1
-            print(f'Remaining chances {Chances}')
-            if Chances == 0:
+            Life -=1
+            print(f'Remaining Life {Life}')
+            if Life == 0:
                 print('You lose!')
                 print(f'The animal was {Target}')
                 break
@@ -45,3 +55,4 @@ while Chances > 0 and Result != Target:
     else:
         print('\nYou won!')
         break
+
